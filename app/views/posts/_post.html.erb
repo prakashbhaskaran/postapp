@@ -9,7 +9,7 @@
         <% end %>
       </h5>
       <p class="card-text text"><%= post.content %></p>
-      <a href="posts/<%= post.id %>" class="btn btn-primary">Open</a>
+      <a href="/posts/<%= post.id %>" class="btn btn-primary">Open</a>
     </div>
     <div class="card-footer text-muted text-end">
       <%= post.created_at.strftime("%B %d %Y, %l:%M%P") %>
