@@ -1,0 +1,19 @@
+<%= turbo_frame_tag dom_id(post) do %>
+<div class="py-3">
+  <div class="card bg-dark text-light">
+    <div class="card-body">
+      <h5 class="card-title d-flex justify-content-between">
+        <span><%= post.title %></span>
+        <% if current_user.id == post.user_id %>
+        <%= button_to "Delete", deletepost_path(id: post.id) , class:"btn btn-danger", method: :delete %>
+        <% end %>
+      </h5>
+      <p class="card-text text"><%= post.content %></p>
+      <a href="posts/<%= post.id %>" class="btn btn-primary">Open</a>
+    </div>
+    <div class="card-footer text-muted text-end">
+      <%= post.created_at.strftime("%B %d %Y, %l:%M%P") %>
+    </div>    
+  </div>
+</div>
+<% end %>

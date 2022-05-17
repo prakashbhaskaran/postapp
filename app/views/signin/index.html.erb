@@ -1,0 +1,9 @@
+<%= form_with url: signin_path, data:{ turbo: false }, class: 'mt-2' do |f| %>
+    <% if flash[:alert] %>
+    <div class="alert alert-danger"><%= flash[:alert] %></div>
+    <% end %>
+    <%= f.text_field :email, class: 'form-control my-2', placeholder: 'Email address' %>
+    <%= f.password_field :password, class: 'form-control my-2', placeholder: 'Password' %>
+    <%= f.submit "Login", class:'btn btn-primary my-2' %>
+<% end %>
+<%= link_to "Don't have an account?", signup_path %>

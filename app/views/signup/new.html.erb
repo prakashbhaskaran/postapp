@@ -1,0 +1,12 @@
+<%= form_with model:@user, url: signup_path, data:{ turbo: false }, class:'mt-2' do |f| %>
+    <% if @user.errors.any? %>
+        <% @user.errors.full_messages.each do |m| %>
+        <div class="alert alert-danger"><%= m %></div>
+        <% end %>
+    <% end %>
+    <%= f.text_field :email, class: 'form-control my-2', placeholder: 'Email address' %>
+    <%= f.password_field :password, class: 'form-control my-2', placeholder: 'Password' %>
+    <%= f.password_field :password_confirmation, class: 'form-control my-2', placeholder: 'Confirm Password' %>
+    <%= f.submit "Create", class:'btn btn-primary my-2' %>
+<% end %>
+<%= link_to "Already have an account?", signin_path %>

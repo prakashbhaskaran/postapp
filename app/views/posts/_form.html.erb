@@ -1,0 +1,13 @@
+<%= form_with model: post,url: postcreate_path, id: dom_id(post) do |f| %>
+    <% if post.errors.any? %>
+        <% post.errors.full_messages.each do |message| %>
+            <div class="alert alert-danger"><%= message %></div>
+        <% end %>
+    <% end %>
+
+    <%= f.text_field :title, class: 'form-control my-2', placeholder: 'Enter a title' %>
+    <%= f.text_area(:content, class: 'form-control my-2', placeholder: 'Enter something here..', rows: "10", style:"resize: none;") %>
+    <div class="text-end">
+    <%= f.submit "Create", class:'btn btn-primary' %>
+    </div>
+<% end %>
