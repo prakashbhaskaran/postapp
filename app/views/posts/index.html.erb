@@ -5,8 +5,11 @@
 <%= link_to "New post", new_post_path, class:'btn btn-primary' %>
 </div>
 <div id="posts" class="mt-4">
-  <% @posts.each do |post| %>
-    <%= render post %>
-  <% end %>
+
+<% if @posts.empty? %>
+  <%= render 'empty/nopost' %>
+<% else %>
+  <%= render @posts %>
+<% end %>
 </div>
 
