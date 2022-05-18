@@ -1,4 +1,17 @@
-<div class="border bg-dark text-light p-4">
-    <div class="fs-3"><%= @post.title %></div>
-    <div class="fs-4"><%= @post.content %></div>
+<% if flash[:notice] %>
+<p class="alert alert-success"><%= notice %></p>
+<% end %>
+
+
+<div class="bg-dark text-light p-4 position-relative">
+    <h5 class="fs-2"><%= @post.title %></h5>
+    <p class="fs-5"><%= @post.content %></p>
+
+  <%= link_to "Back to posts", posts_path, class:'btn btn-primary back' %>
+  <% if current_user.is_my_post?(@post)  %>
+  <div class="d-flex justify-content-between">
+  <%= button_to "Delete", @post, class:'btn btn-danger', method: :delete %>
+  <%= link_to "Edit", edit_post_path(@post),class:'btn btn-primary' %>
+  </div>
+  <% end %>
 </div>

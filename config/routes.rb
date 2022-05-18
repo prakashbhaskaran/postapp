@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
-  post 'postcreate', to: "posts#create"
-  get '/posts/:id', to: 'posts#show'
-  delete 'deletepost', to: 'posts#destroy'
+  resources :posts
   
   #signup and signin
   get 'signup', to:'signup#new'
@@ -13,5 +11,5 @@ Rails.application.routes.draw do
   delete 'logout', to: 'signin#destroy'
 
   #home
-  root "home#index"
+  root "posts#index"
 end

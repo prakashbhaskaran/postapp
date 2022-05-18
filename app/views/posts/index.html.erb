@@ -1,0 +1,12 @@
+<% if flash[:notice] %>
+<p class="alert alert-success"><%= notice %></p>
+<% end %>
+<div class="text-end">
+<%= link_to "New post", new_post_path, class:'btn btn-primary' %>
+</div>
+<div id="posts" class="mt-4">
+  <% @posts.each do |post| %>
+    <%= render post %>
+  <% end %>
+</div>
+

@@ -1,13 +1,24 @@
-<%= form_with model: post,url: postcreate_path, id: dom_id(post) do |f| %>
-    <% if post.errors.any? %>
+<%= form_with(model: post, class:'text-light') do |form| %>
+  <% if post.errors.any? %>
+    <div style="color: red">
         <% post.errors.full_messages.each do |message| %>
-            <div class="alert alert-danger"><%= message %></div>
+          <div class="alert alert-danger"><%= message %></div>
         <% end %>
-    <% end %>
-
-    <%= f.text_field :title, class: 'form-control my-2', placeholder: 'Enter a title' %>
-    <%= f.text_area(:content, class: 'form-control my-2', placeholder: 'Enter something here..', rows: "10", style:"resize: none;") %>
-    <div class="text-end">
-    <%= f.submit "Create", class:'btn btn-primary' %>
     </div>
+  <% end %>
+
+  <div class="py-3">
+    <%= form.label :title, class:'fs-4 pb-2' %>
+    <%= form.text_field :title, class:"form-control bg-dark text-light", placeholder: 'Enter title' %>
+  </div>
+
+  <div class="pb-3">
+    <%= form.label :content, class:'fs-4 pb-2' %>
+    <%= form.text_area :content, class:"form-control bg-dark text-light", placeholder: 'Enter something...', style:"resize:none;", rows: "10" %>
+  </div>
+
+  <div class="d-flex justify-content-between">
+    <%= form.submit class:"btn btn-success" %>
+    <%= link_to "Back", posts_path, class:'btn btn-primary' %>
+  </div>
 <% end %>
