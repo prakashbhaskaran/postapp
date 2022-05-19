@@ -1,6 +1,4 @@
-<% if flash[:notice] %>
-<p class="alert alert-success"><%= notice %></p>
-<% end %>
+
 <div class="text-end">
 <%= link_to "New post", new_post_path, class:'btn btn-primary' %>
 </div>
@@ -9,6 +7,7 @@
 <% if @posts.empty? %>
   <%= render 'empty/nopost' %>
 <% else %>
+<%= turbo_stream_from :posts %>
   <%= render @posts %>
 <% end %>
 </div>
