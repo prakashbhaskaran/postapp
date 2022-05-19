@@ -7,7 +7,7 @@
 <% if @posts.empty? %>
   <%= render 'empty/nopost' %>
 <% else %>
-<%= turbo_stream_from :posts %>
+<%= turbo_stream_from :all_posts %>
   <%= render @posts %>
 <% end %>
 </div>
