@@ -3,7 +3,7 @@
     <h5 class="fs-2"><%= @post.title %></h5>
     <p class="fs-5"><%= @post.content %></p>
 
-  <%= link_to "Back to posts", posts_path, class:'btn btn-primary back' %>
+  <%= link_to "Back to posts", root_path, class:'btn btn-primary back' %>
   <% if current_user.is_my_post?(@post)  %>
   <div class="d-flex justify-content-between">
   <%= button_to "Delete", @post, class:'btn btn-danger', method: :delete %>

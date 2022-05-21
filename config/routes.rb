@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  resources :posts
+  get 'mypost', to: 'profile#index'
+  resources :posts, only: [:show, :edit, :new, :create, :update, :destroy]
   
   #signup and signin
   get 'signup', to:'signup#new'
