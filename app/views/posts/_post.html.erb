@@ -6,7 +6,7 @@
       <%= link_to "Show more", post, class:'btn btn-primary' %>
     </div>
     <div class="card-footer text-muted text-end">
-      <%= post.created_at.in_time_zone(current_time_zone).strftime("%B %d %Y, %l:%M%P") %>
+      <%= post.created_at.in_time_zone(current_time_zone).strftime("%B %d %Y") %>
     </div>  
   </div>
 </div>
