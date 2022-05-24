@@ -1,9 +1,16 @@
 
-<div class="bg-dark text-light p-4 position-relative">
+<div class="bg-dark text-light p-4">
+  <div class="text-end pb-3">
+    <%= link_to root_path, class:'btn btn-primary' do %>
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
+        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+        <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+      </svg> <span class="ps-1">Close</span>
+    <% end %>
+  </div> 
     <h5 class="fs-2"><%= @post.title %></h5>
     <p class="fs-5"><%= @post.content %></p>
 
-  <%= link_to "Back to posts", root_path, class:'btn btn-primary back' %>
   <% if current_user.is_my_post?(@post)  %>
   <div class="d-flex justify-content-between">
   <%= button_to "Delete", @post, class:'btn btn-danger', method: :delete %>
